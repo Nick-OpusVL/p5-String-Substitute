@@ -83,6 +83,13 @@ As a one-liner it might look like this:
 
     perl -Ilib -MString::Substitute=get_all_substitutes -E 'say for get_all_substitutes(string => "ABC", substitutions => { A => "Aa", B => "Bb" })'
 
+=head1 STABILITY
+
+Experimental, mostly because this depends on L<Regex::Genex> which itself admits to relying on experimental or changeable
+aspects of the Perl interpreter.
+
+Tested on perl 5.20.3 - be sure to run the tests on newer versions if you will be relying on this
+
 =head1 SUPPORT
 
 If you require assistance, support, or further development of this software, please contact OpusVL using the details below:
