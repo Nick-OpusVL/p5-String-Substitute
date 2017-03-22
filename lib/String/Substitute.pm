@@ -10,7 +10,6 @@ use List::Gather;
 use Data::Munge qw(elem);
 use Params::Validate qw(:all);
 use strictures 2;
-use namespace::clean;
 
 sub get_all_substitutes {
     my %params = validate(
