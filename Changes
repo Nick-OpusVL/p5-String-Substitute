@@ -2,6 +2,9 @@ Revision history for String-Substitute
 
 {{ $NEXT }}
 
+0.002     2017-03-22 13:59:11+00:00 Europe/London
+    Made some POD improvements.
+
 0.001     2017-03-22 13:11:09+00:00 Europe/London
     First version.
 
