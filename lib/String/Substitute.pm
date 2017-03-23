@@ -113,7 +113,7 @@ e.g. {A => "Aa", B => "Bb"} means that each occurrence of A will be replaced wit
 
 =head1 STABILITY
 
-Experimental, mostly because this depends on L<Regex::Genex> which itself admits to relying on experimental or changeable
+Experimental, mostly because this depends on L<Regexp::Genex> which itself admits to relying on experimental or changeable
 aspects of the Perl interpreter.
 
 Tested on perl 5.20.3 - be sure to run the tests on newer versions if you will be relying on this
@@ -126,6 +126,6 @@ Telephone: +44 (0)1788 298 410
 
 Email: community@opusvl.com
 
-Web: http://opusvl.com
+Web: L<http://opusvl.com>
 
 =cut
