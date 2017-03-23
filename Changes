@@ -2,6 +2,9 @@ Revision history for String-Substitute
 
 {{ $NEXT }}
 
+0.006     2017-03-23 13:43:56+00:00 Europe/London
+    Make URL a proper link in the SUPPORT section of the POD.
+
 0.005     2017-03-23 12:50:24+00:00 Europe/London
     Use cross product of sets instead of Regexp::Genex.
     A crash happened inside Regexp::Genex when I integrated this module into a larger package.
