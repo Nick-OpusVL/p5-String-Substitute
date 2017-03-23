@@ -4,7 +4,7 @@ requires "Params::Validate";
 requires "List::Gather";
 requires "Data::Munge";
 requires "strictures";
-requires "Regex::Genex";
+requires "Regexp::Genex";
 
 on build => sub {
     requires "Test::Most";
