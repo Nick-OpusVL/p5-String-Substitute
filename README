@@ -5,7 +5,7 @@ NAME
 
 VERSION
 
-    version 0.006
+    version 0.007
 
 SYNOPSIS
 
@@ -36,11 +36,6 @@ DESCRIPTION
 
     This module is all about generating strings given an initial string and
     a set of allowed character substitutions.
-
-NAME
-
-    String::Substitute - generate strings using different combinations of
-    subsitute characters
 
 EXPORTS
 

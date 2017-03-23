@@ -42,10 +42,6 @@ sub get_all_substitutes {
 
 # ABSTRACT: generate strings using different combinations of subsitute characters
 
-=head1 NAME
-
-String::Substitute - generate strings using different combinations of subsitute characters
-
 =head1 SYNOPSIS
 
     use String::Substitute qw(get_all_substitutes);
