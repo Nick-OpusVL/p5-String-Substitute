@@ -108,6 +108,6 @@ Telephone: +44 (0)1788 298 410
 
 Email: community@opusvl.com
 
-Web: http://opusvl.com
+Web: L<http://opusvl.com>
 
 =cut
