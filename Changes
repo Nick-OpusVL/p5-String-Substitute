@@ -1,6 +1,11 @@
 Revision history for String-Substitute
 
 {{ $NEXT }}
+    Use cross product of sets instead of Regexp::Genex.
+    A crash happened inside Regexp::Genex when I integrated this module into a larger package.
+      unexpected token '(' during '' at /opt/perl-5.20.2/lib/site_perl/5.20.3/Regexp/Genex.pm line 455.
+    I don't know what caused it, but it's scared me off Regexp::Genex for now.
+    I think the new code is cleaner anyway.
 
 0.004     2017-03-23 11:21:38+00:00 Europe/London
     Declared dependency on Regexp::Genex

@@ -5,9 +5,8 @@ our $VERSION = '0.005';
 use Exporter::Easy (
     OK => [qw/get_all_substitutes/],
 );
-use Regexp::Genex;
+use Set::CrossProduct;
 use List::Gather;
-use Data::Munge qw(elem);
 use Params::Validate qw(:all);
 use strictures 2;
 
@@ -19,33 +18,23 @@ sub get_all_substitutes {
         }
     );
 
-
-    my @results;
-    push @results, $params{string};
-
     my %subs = %{$params{substitutions}};
-    my @substitutable_chars = keys %subs;
 
-    # Build a regex for Regexp::Genex.
-    my @regex_parts = gather {
+    my @character_sets = gather {
         my @chars = split //, $params{string};
         for my $char (@chars) {
-            if (elem $char => \@substitutable_chars) {
-                my @char_possible_subs = split(//, $subs{$char});
-                my @quoted_literals = map { quotemeta($_) } @char_possible_subs;
-                # Build an alternatives group, e.g. (A|B|C), from @quoted_literals
-                take sprintf("(%s)", join('|', @quoted_literals));
+            if (exists $subs{$char}) {
+                take [ split(//, $subs{$char}) ];
             }
             else {
-                take quotemeta($char);
+                take [ $char ];
             }
         }
     };
-    my $regex = join '', @regex_parts;
 
-    # NOTE: Regexp::Genex admits to relying on experimental features and avoiding optimizations in the regex engine.
-    #       Therefore care should be taken if upgrading the Perl interpreter - make sure you run the tests!
-    return Regexp::Genex::strings($regex);
+    my $exploded_results = Set::CrossProduct->new([@character_sets])->combinations;
+    my @imploded_results = map { join '', @$_ } @$exploded_results;
+    return @imploded_results;
 }
 
 
@@ -110,13 +99,6 @@ A HASHREF mapping each substitutable character to a string of different characte
 e.g. {A => "Aa", B => "Bb"} means that each occurrence of A will be replaced with an 'A', or an 'a', in the returned substitutions.
 
 =back
-
-=head1 STABILITY
-
-Experimental, mostly because this depends on L<Regex::Genex> which itself admits to relying on experimental or changeable
-aspects of the Perl interpreter.
-
-Tested on perl 5.20.3 - be sure to run the tests on newer versions if you will be relying on this
 
 =head1 SUPPORT
 

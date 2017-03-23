@@ -2,9 +2,8 @@ requires "perl" => "5.006";
 requires "Exporter::Easy";
 requires "Params::Validate";
 requires "List::Gather";
-requires "Data::Munge";
 requires "strictures";
-requires "Regexp::Genex";
+requires "Set::CrossProduct";
 
 on build => sub {
     requires "Test::Most";
