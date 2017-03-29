@@ -6,7 +6,6 @@ use Exporter::Easy (
     OK => [qw/get_all_substitutes/],
 );
 use Set::CrossProduct;
-use List::Gather;
 use Params::Validate qw(:all);
 use strictures 2;
 
@@ -20,16 +19,18 @@ sub get_all_substitutes {
 
     my %subs = %{$params{substitutions}};
 
-    my @character_sets = gather {
+    my @character_sets = do {
+        my @csets;
         my @chars = split //, $params{string};
         for my $char (@chars) {
             if (exists $subs{$char}) {
-                take [ split(//, $subs{$char}) ];
+                push @csets, [ split(//, $subs{$char}) ];
             }
             else {
-                take [ $char ];
+                push @csets, [ $char ];
             }
         }
+        @csets
     };
 
     my $exploded_results = Set::CrossProduct->new([@character_sets])->combinations;
