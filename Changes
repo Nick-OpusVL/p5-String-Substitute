@@ -2,6 +2,9 @@ Revision history for String-Substitute
 
 {{ $NEXT }}
 
+0.007     2017-03-29 15:52:36+01:00 Europe/London
+    Remove List::Gather dependency, as issue #2 said it was problematic in Perl 5.16 as will be
+
 0.006     2017-03-23 13:43:56+00:00 Europe/London
     Make URL a proper link in the SUPPORT section of the POD.
 
