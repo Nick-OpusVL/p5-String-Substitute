@@ -1,6 +1,6 @@
 package String::Substitute;
 
-our $VERSION = '0.007';
+our $VERSION = '0.008';
 
 use Exporter::Easy (
     OK => [qw/get_all_substitutes/],
