@@ -1,7 +1,6 @@
 requires "perl" => "5.006";
 requires "Exporter::Easy";
 requires "Params::Validate";
-requires "List::Gather";
 requires "strictures";
 requires "Set::CrossProduct";
 
